@@ -45,13 +45,9 @@ class User:
             
 
             
-def get_users():
-    try:
-        with open('auth.json', 'r') as f:
-            users = json.load(f)
-    except FileNotFoundError:
-        users = {}
-    user_list = []
-    for user in users:
-        user_list.append(User(user, users[user]['chatid']))
-    return user_list
+def subscribed_users():
+    with open('auth.json', 'r') as f:
+        users = json.load(f)
+        for user in users:
+            if users[user]['subscribe']:
+                yield User(user, users[user]['chatid'])

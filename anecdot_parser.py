@@ -20,4 +20,3 @@ def get_random_pic():
         pic.append(f"https://anekdotov.net{block.find('img').get('src')}")
         
     return choice(pic)
-    

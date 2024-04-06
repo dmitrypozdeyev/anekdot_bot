@@ -21,4 +21,3 @@ def get_random_pic():
         
     return choice(pic)
     
-
